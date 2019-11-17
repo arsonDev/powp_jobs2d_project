@@ -1,5 +1,9 @@
 package edu.kis.powp.jobs2d.events;
 
+import edu.kis.powp.jobs2d.command.ComplexCommand;
+import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.factory.FigureFactory;
+import edu.kis.powp.jobs2d.command.factory.SquareFactory;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
@@ -16,6 +20,7 @@ public class SelectTestFigureThreeOptionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        FiguresJoe.figureScript2(driverManager.getCurrentDriver());
+        FigureFactory figureFactory = new SquareFactory();
+        figureFactory.getShape(driverManager).execute(driverManager.getCurrentDriver());
     }
 }
